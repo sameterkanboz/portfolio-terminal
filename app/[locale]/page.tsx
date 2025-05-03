@@ -5,7 +5,7 @@ import { Terminal } from "@/components/terminal";
 import { CommandLine } from "@/components/command-line";
 import { BashAnimation } from "@/components/bash-animation";
 import { useTranslations } from "next-intl";
-
+export const runtime = "edge";
 export default function Home() {
   const [history, setHistory] = useState<string[]>([]);
   const [currentSection, setCurrentSection] = useState("home");
