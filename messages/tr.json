@@ -1,6 +1,51 @@
 {
-  "HomePage": {
-    "title": "Merhaba dünya!",
-    "about": "About sayfasına git"
+  "Home": {
+    "ready": "Terminal hazır.",
+    "commands": "Kullanılabilir komutlar:",
+    "home": "Karşılama ekranını göster",
+    "about": "Hakkımda bilgi görüntüle",
+    "projects": "Portfolyo projelerimi incele",
+    "skills": "Teknik yeteneklerimi listele",
+    "contact": "İletişim bilgilerimi görüntüle",
+    "clear": "Terminali temizle",
+    "help": "Yardım mesajını göster",
+    "navigate": "{cmd} sayfasına gidiliyor...",
+    "not-found": "Komut bulunamadı: {command}. Kullanılabilir komutları görmek için 'help' yaz.",
+    "type": "Bir komut yaz...",
+    "welcome": "\nMerhaba ziyaretçi,\n\nTerminal portfolyoma hoş geldin.\n\nKarmaşık problemler için zarif çözümler üretmeyi seven bir geliştiriciyim.\n\nBu interaktif terminal aracılığıyla portfolyomda gezinebilirsin.\n\nMevcut komutları görmek için 'help' yazman yeterli.\n\nProjelerimi, yeteneklerimi inceleyebilir ve benimle iletişime geçebilirsin!\n"
+  },
+  "Terminal": {
+    "page": "samet-erkan-boz-portfolyo ~ {currentSection}",
+    "mark": "sameterkanboz@portfolyo"
+  },
+  "Bash": {
+    "start": "Sistem başlatılıyor...",
+    "loading": "Çekirdek modülleri yükleniyor...",
+    "init": "Donanım başlatılıyor...",
+    "check": "Dosya sistemi kontrol ediliyor...",
+    "mount": "Bölümler bağlanıyor...",
+    "network": "Ağ servisleri başlatılıyor...",
+    "success": "Sistem başarıyla başlatıldı.",
+    "welcome": "Samet Erkan Boz Portfolyo v2.0.0'a hoş geldiniz",
+    "type": "Mevcut komutları görmek için 'help' yazın."
+  },
+  "Contact": {
+    "title": "İletişim Bilgileri",
+    "send-message": "Mesaj Gönder",
+    "name": "Ad:",
+    "email": "E-posta:",
+    "message": "Mesaj:",
+    "success": "Mesaj başarıyla gönderildi! En kısa sürede geri dönüş yapacağım.",
+    "error": "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+  },
+  "About": {
+    "content": "\nKULLANICI PROFİLİ\n------------------\nAD: Samet Erkan Boz\nKONUM: Istanbul\nUNVAN: Full Stack Developer\n\nHAKKIMDA\n--------\nUygulama geliştirme konusunda güçlü bir altyapıya sahip tutkulu bir geliştiriciyim. \nTeknoloji yolculuğum 2021 yılında başladı.\n\nKarmaşık problemleri çözmekten ve sezgisel, verimli çözümler üretmekten keyif alırım.\nKod yazmadığım zamanlarda [hobileriniz/ilgi alanlarınız] ile uğraşırım.\n\nGeliştirme yaklaşımım DRY ve KISS üzerine kuruludur.\n\nEĞİTİM\n------\nBilgisayar Mühendisliği - IGU (2020 - 2024)\n\nDENEYİM\n-------\nFull-Stack Developer - beije.co (2024...)\n- beije.co\n- ruuts.xyz\n- admin-panel\n\nFrontend Developer - kargakarga (2024)\n- inmanage.io\n\nFrontend Developer - depixen (2021 - 2023)\n- depixen.com\n- admin panel"
+  },
+  "Skills": {
+    "languages": "Diller",
+    "frameworks": "Framework ve Kütüphaneler",
+    "tools": "Araçlar ve Platformlar",
+    "other": "Diğer Yetenekler",
+    "installed": "kuruldu"
   }
 }

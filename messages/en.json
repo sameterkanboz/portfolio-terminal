@@ -1,6 +1,51 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "Home": {
+    "ready": "Terminal ready.",
+    "commands": "Available commands:",
+    "home": "Display welcome screen",
+    "about": "View information about me",
+    "projects": "Browse my portfolio projects",
+    "skills": "List my technical skills",
+    "contact": "Get my contact information",
+    "clear": "Clear the terminal",
+    "help": "Show this help message",
+    "navigate": " Navigating to {cmd}...",
+    "not-found": "Command not found: {command}. Type 'help' for available commands.",
+    "type": "Type a command...",
+    "welcome": "\nHello, visitor.\n\nWelcome to my terminal portfolio.\n\nI'm a developer passionate about creating elegant solutions to complex problems.\n\nThis interactive terminal allows you to navigate through my portfolio.\n\nType 'help' to see available commands and explore my work.\n\nFeel free to check out my projects, skills, and get in touch!\n"
+  },
+  "Terminal": {
+    "page": "samet-erkan-boz-portfolio ~ {currentSection}",
+    "mark": "sameterkanboz@portfolio"
+  },
+  "Bash": {
+    "start": "Starting system...",
+    "loading": "Loading kernel modules...",
+    "init": "Initializing hardware...",
+    "check": "Checking file system...",
+    "mount": "Mounting partitions...",
+    "network": "Starting network services...",
+    "success": "System initialized successfully.",
+    "welcome": "Welcome to Samet Erkan Boz Portfolio v2.0.0",
+    "type": "Type 'help' to see available commands."
+  },
+  "Contact": {
+    "title": "Contact Information",
+    "send-message": "Send Message",
+    "name": "Name:",
+    "email": "Email:",
+    "message": "Message:",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "An error occurred while sending the message. Please try again later."
+  },
+  "About": {
+    "content": "\nUSER PROFILE\n------------\nNAME: Samet Erkan Boz\nLOCATION: Istanbul\nTITLE: Full Stack Developer\n\nABOUT\n-----\nI am a passionate developer with a strong background in application development. \nMy journey in technology began in 2021.\n\nI enjoy solving complex problems and creating intuitive, efficient solutions.\nWhen I'm not coding, I enjoy spending time on [your hobbies/interests].\n\nMy approach to development is based on the DRY and KISS principles.\n\nEDUCATION\n---------\nBSc in Computer Engineering - IGU (2020 - 2024)\n\nEXPERIENCE\n----------\nFull-Stack Developer at beije.co (2024 - present)\n- beije.co\n- admin-panel\n- ruuts.xyz\n\nFrontend Developer at kargakarga (2024)\n- inmanage.io\n\nFrontend Developer at depixen (2021 - 2023)\n- depixen.com\n- admin panel"
+  },
+  "Skills": {
+    "languages": "Languages",
+    "frameworks": "Frameworks & Libraries",
+    "tools": "Tools & Platforms",
+    "other": "Other Skills",
+    "installed": "installed"
   }
 }

@@ -1,11 +1,14 @@
+import { useTranslations } from "next-intl";
+
 export function Skills() {
+  const t = useTranslations("Skills");
   const skillCategories = [
     {
-      name: "Languages",
+      name: t("languages"),
       skills: ["JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL"],
     },
     {
-      name: "Frameworks & Libraries",
+      name: t("frameworks"),
       skills: [
         "React",
         "Next.js",
@@ -16,11 +19,11 @@ export function Skills() {
       ],
     },
     {
-      name: "Tools & Platforms",
+      name: t("tools"),
       skills: ["Git", "GitHub", "VS Code", "Docker", "AWS", "Vercel"],
     },
     {
-      name: "Other Skills",
+      name: t("other"),
       skills: [
         "Responsive Design",
         "RESTful APIs",
@@ -48,7 +51,7 @@ export function Skills() {
                 <span className="text-green-400 mr-2">$</span>
                 <div className="flex justify-between w-full">
                   <span>{skill}</span>
-                  <span className="text-green-400/70">installed</span>
+                  <span className="text-green-400/70">{t("installed")}</span>
                 </div>
               </div>
             ))}

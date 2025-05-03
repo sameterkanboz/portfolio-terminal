@@ -6,6 +6,7 @@ import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Contact } from "@/components/sections/contact";
 import { Home } from "@/components/sections/home";
+import { useTranslations } from "next-intl";
 
 interface TerminalProps {
   history: string[];
@@ -14,7 +15,7 @@ interface TerminalProps {
 
 export function Terminal({ history, currentSection }: TerminalProps) {
   const terminalRef = useRef<HTMLDivElement>(null);
-
+  const t = useTranslations("Terminal");
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -32,11 +33,12 @@ export function Terminal({ history, currentSection }: TerminalProps) {
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <div className="text-xs">terminal-portfolio ~ {currentSection}</div>
-        <div className="text-xs">user@portfolio</div>
+        <div className="text-xs">
+          {t("page", { currentSection: currentSection })}
+        </div>
+        <div className="text-xs hidden md:inline"> {t("mark")}</div>
       </div>
 
-      {/* Command history */}
       <div className="mb-4">
         {history.map((line, index) => (
           <div key={index} className="mb-1">
@@ -44,8 +46,6 @@ export function Terminal({ history, currentSection }: TerminalProps) {
           </div>
         ))}
       </div>
-
-      {/* Current section content - only show if history is not empty */}
       {history.length > 0 && (
         <div className="mt-6 border-t border-green-500/30 pt-4">
           {currentSection === "home" && <Home />}

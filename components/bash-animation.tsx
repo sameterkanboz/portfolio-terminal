@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState, useEffect, useCallback, useRef } from "react";
 
 interface BashAnimationProps {
@@ -13,7 +14,8 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [showingAsciiArt, setShowingAsciiArt] = useState(false);
 
-  // ASCII art for "SEB"
+  const t = useTranslations("Bash");
+
   const sebAscii = [
     "███████╗███████╗██████╗ ",
     "██╔════╝██╔════╝██╔══██╗",
@@ -23,27 +25,24 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
     "╚══════╝╚══════╝╚═════╝ ",
   ];
 
-  // Additional terminal lines to display before and after the ASCII art
   const terminalLines = useRef([
-    "Starting system...",
-    "Loading kernel modules...",
-    "Initializing hardware...",
-    "Checking file system...",
-    "Mounting partitions...",
-    "Starting network services...",
+    t("start"),
+    t("loading"),
+    t("init"),
+    t("check"),
+    t("mount"),
+    t("network"),
     "",
     ...sebAscii,
     "",
-    "System initialized successfully.",
-    "Welcome to Terminal Portfolio v1.0.0",
-    "Type 'help' to see available commands.",
+    t("success"),
+    t("welcome"),
+    t("type"),
   ]).current;
 
-  // Calculate the line indices where ASCII art starts and ends
   const asciiStartIndex = 7;
   const asciiEndIndex = asciiStartIndex + sebAscii.length - 1;
 
-  // Function to type the next character
   const typeNextChar = useCallback(() => {
     if (currentLine >= terminalLines.length) {
       setIsComplete(true);
@@ -53,16 +52,13 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
       return;
     }
 
-    // Check if we're about to start typing the ASCII art
     if (currentLine === asciiStartIndex && currentChar === 0) {
       setShowingAsciiArt(true);
     }
 
-    // Check if we've just finished typing the ASCII art and need to pause
     if (currentLine === asciiEndIndex + 1 && currentChar === 0) {
       setShowingAsciiArt(false);
       setTimeout(() => {
-        // Continue typing after pause
         typeNextCharacter();
       }, 2000);
       return;
@@ -77,11 +73,9 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
     asciiEndIndex,
   ]);
 
-  // Helper function to actually type the next character
   const typeNextCharacter = useCallback(() => {
     const line = terminalLines[currentLine];
 
-    // If this is a new line, initialize it
     if (currentChar === 0) {
       setDisplayLines((prev) => {
         const newLines = [...prev];
@@ -90,7 +84,6 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
       });
     }
 
-    // If we haven't reached the end of the current line
     if (currentChar < line.length) {
       setDisplayLines((prev) => {
         const newLines = [...prev];
@@ -100,24 +93,22 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
       });
       setCurrentChar((prev) => prev + 1);
     } else {
-      // Move to the next line
       setCurrentLine((prev) => prev + 1);
       setCurrentChar(0);
     }
   }, [currentLine, currentChar, terminalLines]);
 
-  // Determine typing speed based on content
   const getTypingSpeed = useCallback(() => {
     if (currentLine >= asciiStartIndex && currentLine <= asciiEndIndex) {
-      return 5; // Type ASCII art faster
+      return 5;
     } else {
-      return Math.random() * 30 + 20; // Normal typing speed for other text
+      return Math.random() * 30 + 20;
     }
   }, [currentLine, asciiStartIndex, asciiEndIndex]);
 
   useEffect(() => {
     const speed = getTypingSpeed();
-    const delay = currentChar === 0 ? 300 : speed; // Longer delay between lines
+    const delay = currentChar === 0 ? 300 : speed;
 
     const timer = setTimeout(typeNextChar, delay);
     return () => clearTimeout(timer);
@@ -131,13 +122,12 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <div className="text-xs">terminal-boot ~ bash</div>
-        <div className="text-xs">user@portfolio</div>
+        <div className="text-xs">samet-erkan-boz ~ bash</div>
+        <div className="text-xs hidden md:inline">sameterkanboz@portfolio</div>
       </div>
 
       <pre className="whitespace-pre-wrap">
         {displayLines.map((line, index) => {
-          // Check if this line is part of the ASCII art
           const isAsciiArt = index >= asciiStartIndex && index <= asciiEndIndex;
 
           return (
@@ -156,7 +146,6 @@ export function BashAnimation({ onComplete }: BashAnimationProps) {
         })}
       </pre>
 
-      {/* Show a special indicator when displaying ASCII art */}
       {showingAsciiArt && (
         <div className="fixed bottom-4 right-4 text-blue-400 text-sm animate-pulse">
           [SEB System Initializing...]

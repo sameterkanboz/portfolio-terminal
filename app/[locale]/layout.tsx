@@ -10,8 +10,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Terminal Portfolio",
-  description: "A developer portfolio styled as a computer terminal",
+  title: "{ seb@portfolio:~ }_",
+  description: "samet erkan boz - portfolio",
 };
 
 import { NextIntlClientProvider, hasLocale } from "next-intl";

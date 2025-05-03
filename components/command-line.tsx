@@ -2,6 +2,7 @@
 
 import { useState, type KeyboardEvent } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface CommandLineProps {
   onCommand: (command: string) => void;
@@ -11,7 +12,7 @@ export function CommandLine({ onCommand }: CommandLineProps) {
   const [command, setCommand] = useState("");
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-
+  const t = useTranslations("Home");
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       onCommand(command);
@@ -54,7 +55,7 @@ export function CommandLine({ onCommand }: CommandLineProps) {
         onChange={(e) => setCommand(e.target.value)}
         onKeyDown={handleKeyDown}
         className="flex-1 bg-transparent text-green-500 outline-none caret-green-500"
-        placeholder="Type a command..."
+        placeholder={t("type")}
         autoFocus
       />
     </div>
