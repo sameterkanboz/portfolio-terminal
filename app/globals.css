@@ -1,26 +1,258 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-mono: var(--font-space-mono), ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: 0 255 0;
+  --background: 0 0 0;
+
+  --border: 22 163 74;
+  --input: 22 163 74;
+  --ring: 22 163 74;
+
+  --primary: 22 163 74;
+  --primary-foreground: 0 0 0;
+
+  --secondary: 22 101 52;
+  --secondary-foreground: 0 255 0;
+
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+
+  --muted: 10 46 22;
+  --muted-foreground: 74 222 128;
+
+  --accent: 22 101 52;
+  --accent-foreground: 0 255 0;
+
+  --popover: 0 0 0;
+  --popover-foreground: 0 255 0;
+
+  --card: 0 0 0;
+  --card-foreground: 0 255 0;
+
+  --radius: 0.5rem;
+
+  --green-300: 74 222 128;
+  --green-400: 34 197 94;
+  --green-500: 22 163 74;
+  --green-600: 21 128 61;
+  --green-700: 22 101 52;
+  --green-800: 20 83 45;
+  --green-900: 5 46 22;
+
+  --blue-400: 96 165 250;
+
+  --animation-blink: blink 1s step-end infinite;
+  --animation-flicker: flicker 0.15s infinite;
+  --animation-scanline: scanline 8s linear infinite;
+  --animation-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+}
+
+/* Terminal blinking cursor */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 255, 0, 0.1);
+  z-index: 999;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* CRT flicker effect */
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  10% {
+    opacity: 0.97;
+  }
+  15% {
+    opacity: 0.92;
+  }
+  20% {
+    opacity: 0.97;
+  }
+  25% {
+    opacity: 0.94;
+  }
+  30% {
+    opacity: 0.97;
+  }
+  35% {
+    opacity: 0.93;
+  }
+  40% {
+    opacity: 0.97;
+  }
+  45% {
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.97;
+  }
+  55% {
+    opacity: 0.96;
+  }
+  60% {
+    opacity: 0.97;
+  }
+  65% {
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.97;
+  }
+  75% {
+    opacity: 0.94;
+  }
+  80% {
+    opacity: 0.97;
+  }
+  85% {
+    opacity: 0.98;
+  }
+  90% {
+    opacity: 0.97;
+  }
+  95% {
+    opacity: 0.93;
+  }
+  100% {
+    opacity: 0.97;
+  }
+}
+
+/* Slow pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 255, 0, 0.3);
+  color: #fff;
+}
+
+/* Add these terminal-style scrollbar styles after the existing CSS */
+
+/* Terminal-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 30, 0, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 0, 0.4);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 0, 0.6);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 0, 0.4) rgba(0, 30, 0, 0.4);
+}
+
+/* Add a subtle glow to the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* Add a glitch effect for the ASCII art */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.ascii-art {
+  animation: glitch 500ms infinite;
+  font-weight: bold;
+  font-size: 1.1em;
 }
