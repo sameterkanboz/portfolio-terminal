@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { Send, Mail, Github, Linkedin, Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ export function Contact() {
     message: "",
   });
   const [status, setStatus] = useState<string | null>(null);
-
+  const t = useTranslations("Contact");
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -22,10 +23,9 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // This would be replaced with actual form submission logic
-    setStatus("Message sent successfully! I'll get back to you soon.");
 
-    // Reset form after submission
+    setStatus(t("success"));
+
     setTimeout(() => {
       setFormData({ name: "", email: "", message: "" });
       setStatus(null);
@@ -39,59 +39,59 @@ export function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div className="text-green-300 border-b border-green-500/30 pb-1 mb-3">
-            Contact Information
+            {t("title")}
           </div>
 
           <div className="space-y-3">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:sameterkanboz@gmail.com"
               className="flex items-center text-green-400 hover:text-green-300"
             >
               <Mail className="h-4 w-4 mr-2" />
-              <span>your.email@example.com</span>
+              <span>sameterkanboz@gmail.com</span>
             </a>
 
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/sameterkanboz"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-green-400 hover:text-green-300"
             >
               <Github className="h-4 w-4 mr-2" />
-              <span>github.com/yourusername</span>
+              <span>github.com/sameterkanboz</span>
             </a>
 
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/sameterkanboz"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-green-400 hover:text-green-300"
             >
               <Linkedin className="h-4 w-4 mr-2" />
-              <span>linkedin.com/in/yourusername</span>
+              <span>linkedin.com/in/sameterkanboz</span>
             </a>
 
             <a
-              href="https://yourwebsite.com"
+              href="https://seboz.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-green-400 hover:text-green-300"
             >
               <Globe className="h-4 w-4 mr-2" />
-              <span>yourwebsite.com</span>
+              <span>seboz.dev</span>
             </a>
           </div>
         </div>
 
         <div>
           <div className="text-green-300 border-b border-green-500/30 pb-1 mb-3">
-            Send Message
+            {t("send-message")}
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div>
               <label htmlFor="name" className="block text-green-400 mb-1">
-                Name:
+                {t("name")}:
               </label>
               <input
                 type="text"
@@ -106,7 +106,7 @@ export function Contact() {
 
             <div>
               <label htmlFor="email" className="block text-green-400 mb-1">
-                Email:
+                {t("email")}:
               </label>
               <input
                 type="email"
@@ -121,7 +121,7 @@ export function Contact() {
 
             <div>
               <label htmlFor="message" className="block text-green-400 mb-1">
-                Message:
+                {t("message")}:
               </label>
               <textarea
                 id="message"
@@ -139,7 +139,7 @@ export function Contact() {
               className="flex items-center bg-green-700 hover:bg-green-600 text-black font-bold py-2 px-4 rounded"
             >
               <Send className="h-4 w-4 mr-2" />
-              <span>Send Message</span>
+              <span>{t("send-message")}</span>
             </button>
 
             {status && <div className="text-green-400 mt-2">{status}</div>}

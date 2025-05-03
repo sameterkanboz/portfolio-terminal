@@ -1,22 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
 export function Home() {
   const [text, setText] = useState("");
-  const fullText = `
-Hello, visitor.
-
-Welcome to my terminal portfolio.
-
-I'm a developer passionate about creating elegant solutions to complex problems.
-
-This interactive terminal allows you to navigate through my portfolio.
-
-Type 'help' to see available commands and explore my work.
-
-Feel free to check out my projects, skills, and get in touch!
-`;
+  const t = useTranslations("Home");
+  const fullText = t("welcome");
 
   useEffect(() => {
     let currentIndex = 0;
