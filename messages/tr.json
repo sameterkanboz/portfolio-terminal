@@ -4,15 +4,15 @@
     "commands": "Kullanılabilir komutlar:",
     "home": "Karşılama ekranını göster",
     "about": "Hakkımda bilgi görüntüle",
-    "projects": "Portfolyo projelerimi incele",
-    "skills": "Teknik yeteneklerimi listele",
+    "projects": "beije'deki işlerimi incele",
+    "skills": "Çalıştığım teknolojileri listele",
     "contact": "İletişim bilgilerimi görüntüle",
     "clear": "Terminali temizle",
     "help": "Yardım mesajını göster",
     "navigate": "{cmd} sayfasına gidiliyor...",
     "not-found": "Komut bulunamadı: {command}. Kullanılabilir komutları görmek için 'help' yaz.",
     "type": "Bir komut yaz...",
-    "welcome": "\nMerhaba ziyaretçi,\n\nTerminal portfolyoma hoş geldin.\n\nKarmaşık problemler için zarif çözümler üretmeyi seven bir geliştiriciyim.\n\nBu interaktif terminal aracılığıyla portfolyomda gezinebilirsin.\n\nMevcut komutları görmek için 'help' yazman yeterli.\n\nProjelerimi, yeteneklerimi inceleyebilir ve benimle iletişime geçebilirsin!\n"
+    "welcome": "\nMerhaba ziyaretçi,\n\nBen Samet Erkan Boz, İstanbul'da full stack mühendisim.\n\nRegl bakım ürünlerini abonelikle satan beije'nin mağaza sitelerini, yönetim araçlarını ve servislerini geliştiriyorum.\n\nKomutları görmek için 'help', doğrudan işlere gitmek için 'projects' yaz.\n"
   },
   "Terminal": {
     "page": "samet-erkan-boz-portfolyo ~ {currentSection}",
@@ -30,22 +30,112 @@
     "type": "Mevcut komutları görmek için 'help' yazın."
   },
   "Contact": {
-    "title": "İletişim Bilgileri",
-    "send-message": "Mesaj Gönder",
-    "name": "Ad:",
-    "email": "E-posta:",
-    "message": "Mesaj:",
-    "success": "Mesaj başarıyla gönderildi! En kısa sürede geri dönüş yapacağım.",
-    "error": "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+    "title": "İletişim Bilgileri"
   },
   "About": {
-    "content": "\nKULLANICI PROFİLİ\n------------------\nAD: Samet Erkan Boz\nKONUM: Istanbul\nUNVAN: Full Stack Developer\n\nHAKKIMDA\n--------\nUygulama geliştirme konusunda güçlü bir altyapıya sahip tutkulu bir geliştiriciyim. \nTeknoloji yolculuğum 2021 yılında başladı.\n\nKarmaşık problemleri çözmekten ve sezgisel, verimli çözümler üretmekten keyif alırım.\nKod yazmadığım zamanlarda [hobileriniz/ilgi alanlarınız] ile uğraşırım.\n\nGeliştirme yaklaşımım DRY ve KISS üzerine kuruludur.\n\nEĞİTİM\n------\nBilgisayar Mühendisliği - IGU (2020 - 2024)\n\nDENEYİM\n-------\nFull-Stack Developer - beije.co (2024...)\n- beije.co\n- ruuts.xyz\n- admin-panel\n\nFrontend Developer - kargakarga (2024)\n- inmanage.io\n\nFrontend Developer - depixen (2021 - 2023)\n- depixen.com\n- admin panel"
+    "content": "\nKULLANICI PROFİLİ\n------------------\nAD: Samet Erkan Boz\nKONUM: İstanbul\nUNVAN: Full Stack Developer\n\nHAKKIMDA\n--------\nTemmuz 2024'ten beri, regl bakım ürünlerini abonelikle satan beije'de çalışıyorum.\nLanding sayfalarıyla başladım; bugün Next.js uygulamaları ve NestJS servislerinden\noluşan bir monorepoda platform işlerini üstleniyorum.\n\nEĞİTİM\n------\nBilgisayar Mühendisliği, İstanbul Gelişim Üniversitesi (2020 - 2024)\n\nDENEYİM\n-------\nFull Stack Developer, beije (2024 - bugün)\n- beije.co müşteri sitesi\n- ruuts.xyz müşteri sitesi\n- yönetim paneli, backend servisleri, uçtan uca testler\n\nFrontend Developer, kargakarga (2024)\n\nFull Stack Stajyer, Kafein (2024)\n\nFrontend Developer, fiyatperformans (2023)\n\nFrontend Developer, Depixen (2022 - 2023)"
   },
   "Skills": {
-    "languages": "Diller",
-    "frameworks": "Framework ve Kütüphaneler",
-    "tools": "Araçlar ve Platformlar",
-    "other": "Diğer Yetenekler",
-    "installed": "kuruldu"
+    "installed": "kuruldu",
+    "groups": [
+      {
+        "name": "Frontend",
+        "skills": [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "MUI",
+          "Redux Toolkit",
+          "Storybook",
+          "React Native"
+        ]
+      },
+      {
+        "name": "Backend",
+        "skills": [
+          "Node.js",
+          "NestJS",
+          "GraphQL",
+          "MongoDB",
+          "PostgreSQL",
+          "RabbitMQ"
+        ]
+      },
+      {
+        "name": "Test ve yayın",
+        "skills": [
+          "Playwright",
+          "Cypress",
+          "Nx",
+          "GitHub Actions",
+          "Docker"
+        ]
+      }
+    ]
+  },
+  "Projects": {
+    "heading": "beije'deki işler, Temmuz 2024'ten bugüne",
+    "technologies": "Teknolojiler:",
+    "also": "beije'de ayrıca",
+    "items": [
+      {
+        "name": "Müşteri sitesi",
+        "description": "2025'ten beri beije.co'nun en aktif geliştiricisiyim. Kampanya ve landing sayfalarını, 3D Secure ve tek kullanımlık şifreyle ödeme alan, kayıtlı kartları destekleyen sepet ve ödeme adımlarını, aboneliği düzenleme, erteleme ve iptal akışlarını, iade talebini de formundan e-postalarına kadar ben geliştirdim.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "MUI",
+          "Redux Toolkit"
+        ]
+      },
+      {
+        "name": "Yeni yönetim paneli",
+        "description": "Eski operasyon panelini yeni bir Next.js paneline taşıdım: toplu işlem yapılabilen sipariş kuyrukları, iadeler ve geri dönen siparişler, promosyon kodları ve kuponlar, etiket ve fatura yazdırma, müşteri ve yorum yönetimi. Tek kod tabanı iki markaya hizmet ediyor, Türkçe ve İngilizce çalışıyor ve her yöneticiye yalnızca yetkisinin izin verdiği ekranları gösteriyor.",
+        "technologies": [
+          "Next.js",
+          "GraphQL",
+          "Refine",
+          "next-intl"
+        ]
+      },
+      {
+        "name": "Monorepo genelinde platform yükseltmesi",
+        "description": "Yedi frontend uygulamasının tamamını iki haftada React 19, Next.js 16 ve MUI 9'a taşıdım; aynı işte ESLint 9 düz yapılandırmasına ve daha yeni bir Nx sürümüne geçtik. Ekip için geçiş rehberini de ben yazdım.",
+        "technologies": [
+          "React 19",
+          "Next.js 16",
+          "MUI 9",
+          "Nx"
+        ]
+      },
+      {
+        "name": "Bütün sistemi çalıştıran uçtan uca testler",
+        "description": "İlk aylarımda müşteri sitesinin Cypress testlerinin çoğunu yazdım, sonra yönetim paneli için Playwright'ı kurdum. Testler CI'da, örnek verilerle doldurulmuş yerel bir Docker ortamına ve ödeme test ortamına karşı çalışıyor; bozulan bir ödeme adımı müşteriye ulaşmadan pull request'te yakalanıyor.",
+        "technologies": [
+          "Playwright",
+          "Cypress",
+          "Docker",
+          "GitHub Actions"
+        ]
+      }
+    ],
+    "alsoItems": [
+      {
+        "name": "ruuts.xyz",
+        "description": "beije'nin tıraş ürünleri alt markası ruuts'un markaya özel özelliklerinin çoğu: başlangıç kiti düzenleyicisi, ileri bir tarihte başlayan abonelikler ve beije hesabıyla kayıt."
+      },
+      {
+        "name": "Her servis için yerelleştirilmiş hatalar",
+        "description": "Yaklaşık on NestJS servisinin hata ve doğrulama mesajlarını kullanıcının dilinde ve numaralı hata kodlarıyla döndürmesini sağlayan ortak kütüphane."
+      },
+      {
+        "name": "Figma'dan gelen tasarım değişkenleri",
+        "description": "Figma tasarım sisteminden üretilen renk, yazı ve boşluk değişkenleri, elle yazılmış değerleri reddeden bir lint kuralı ve rengini çevresindeki metinden alan yaklaşık 1.400 ikonluk tek bir kütüphane."
+      },
+      {
+        "name": "Backend servisleri",
+        "description": "Hız sınırlı SMS doğrulama kodları, giriş geçmişi, topluluk için moderasyon API'leri, yönetici yetkileri ve etiket yazdırmayı da içeren kargo firması entegrasyonları."
+      }
+    ]
   }
 }

@@ -1,89 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight, ExternalLink, Github } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-interface Project {
-  id: string;
+interface Item {
   name: string;
   description: string;
-  technologies: string[];
-  github?: string;
-  demo?: string;
+  technologies?: string[];
 }
 
 export function Projects() {
-  const [expandedProject, setExpandedProject] = useState<string | null>(null);
-
-  const projects: Project[] = [
-    {
-      id: "project1",
-      name: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce solution with payment processing, inventory management, and admin dashboard.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-      github: "https://github.com/yourusername/ecommerce",
-      demo: "https://ecommerce-demo.com",
-    },
-    {
-      id: "project2",
-      name: "Weather Application",
-      description:
-        "Real-time weather forecasting app with location detection and interactive maps.",
-      technologies: ["JavaScript", "Weather API", "Geolocation API", "CSS3"],
-      github: "https://github.com/yourusername/weather-app",
-      demo: "https://weather-app-demo.com",
-    },
-    {
-      id: "project3",
-      name: "Task Management System",
-      description:
-        "Collaborative task management tool with real-time updates and team workspaces.",
-      technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
-      github: "https://github.com/yourusername/task-manager",
-      demo: "https://task-manager-demo.com",
-    },
-  ];
-
-  const toggleProject = (id: string) => {
-    if (expandedProject === id) {
-      setExpandedProject(null);
-    } else {
-      setExpandedProject(id);
-    }
-  };
+  const t = useTranslations("Projects");
+  const items = t.raw("items") as Item[];
+  const alsoItems = t.raw("alsoItems") as Item[];
+  const [expanded, setExpanded] = useState<string | null>(items[0].name);
 
   return (
     <div className="space-y-6">
-      <div className="text-xl text-green-400 mb-4">$ ls -la ./projects</div>
+      <div className="text-xl text-green-400 mb-4">$ ls -la ./work</div>
+      <div className="text-green-300">{t("heading")}</div>
 
-      {projects.map((project) => (
-        <div
-          key={project.id}
-          className="border border-green-500/30 rounded p-3"
-        >
-          <div
-            className="flex items-center cursor-pointer"
-            onClick={() => toggleProject(project.id)}
+      {items.map((item) => (
+        <div key={item.name} className="border border-green-500/30 rounded p-3">
+          <button
+            type="button"
+            className="flex items-center w-full text-left"
+            aria-expanded={expanded === item.name}
+            onClick={() =>
+              setExpanded(expanded === item.name ? null : item.name)
+            }
           >
             <ChevronRight
               className={`h-4 w-4 mr-2 transition-transform ${
-                expandedProject === project.id ? "rotate-90" : ""
+                expanded === item.name ? "rotate-90" : ""
               }`}
             />
-            <span className="text-green-300 font-bold">{project.name}</span>
-          </div>
+            <span className="text-green-300 font-bold">{item.name}</span>
+          </button>
 
-          {expandedProject === project.id && (
+          {expanded === item.name && (
             <div className="mt-3 ml-6 space-y-3">
-              <p>{project.description}</p>
-
+              <p>{item.description}</p>
               <div>
-                <span className="text-green-400">Technologies:</span>
+                <span className="text-green-400">{t("technologies")}</span>
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {project.technologies.map((tech, index) => (
+                  {item.technologies?.map((tech) => (
                     <span
-                      key={index}
+                      key={tech}
                       className="px-2 py-1 bg-green-900/30 text-green-300 text-xs rounded"
                     >
                       {tech}
@@ -91,34 +55,19 @@ export function Projects() {
                   ))}
                 </div>
               </div>
-
-              <div className="flex gap-4">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-green-400 hover:text-green-300"
-                  >
-                    <Github className="h-4 w-4 mr-1" />
-                    <span>Source Code</span>
-                  </a>
-                )}
-
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-green-400 hover:text-green-300"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-1" />
-                    <span>Live Demo</span>
-                  </a>
-                )}
-              </div>
             </div>
           )}
+        </div>
+      ))}
+
+      <div className="text-green-300 border-b border-green-500/30 pb-1">
+        {t("also")}
+      </div>
+      {alsoItems.map((item) => (
+        <div key={item.name}>
+          <span className="text-green-400 mr-2">$</span>
+          <span className="text-green-300 font-bold">{item.name}</span>
+          <p className="ml-5 mt-1">{item.description}</p>
         </div>
       ))}
     </div>
