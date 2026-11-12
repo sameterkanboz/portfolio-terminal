@@ -2,38 +2,10 @@ import { useTranslations } from "next-intl";
 
 export function Skills() {
   const t = useTranslations("Skills");
-  const skillCategories = [
-    {
-      name: t("languages"),
-      skills: ["JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL"],
-    },
-    {
-      name: t("frameworks"),
-      skills: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "Express",
-        "Tailwind CSS",
-        "Redux",
-      ],
-    },
-    {
-      name: t("tools"),
-      skills: ["Git", "GitHub", "VS Code", "Docker", "AWS", "Vercel"],
-    },
-    {
-      name: t("other"),
-      skills: [
-        "Responsive Design",
-        "RESTful APIs",
-        "GraphQL",
-        "UI/UX Design",
-        "Testing",
-        "CI/CD",
-      ],
-    },
-  ];
+  const skillCategories = t.raw("groups") as {
+    name: string;
+    skills: string[];
+  }[];
 
   return (
     <div className="space-y-6">

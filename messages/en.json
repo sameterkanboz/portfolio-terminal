@@ -4,15 +4,15 @@
     "commands": "Available commands:",
     "home": "Display welcome screen",
     "about": "View information about me",
-    "projects": "Browse my portfolio projects",
-    "skills": "List my technical skills",
+    "projects": "Browse my work at beije",
+    "skills": "List the stack I work with",
     "contact": "Get my contact information",
     "clear": "Clear the terminal",
     "help": "Show this help message",
     "navigate": " Navigating to {cmd}...",
     "not-found": "Command not found: {command}. Type 'help' for available commands.",
     "type": "Type a command...",
-    "welcome": "\nHello, visitor.\n\nWelcome to my terminal portfolio.\n\nI'm a developer passionate about creating elegant solutions to complex problems.\n\nThis interactive terminal allows you to navigate through my portfolio.\n\nType 'help' to see available commands and explore my work.\n\nFeel free to check out my projects, skills, and get in touch!\n"
+    "welcome": "\nHello, visitor.\n\nI am Samet Erkan Boz, a full stack engineer in Istanbul.\n\nI build the storefronts, admin tools and services behind beije, a period care brand that sells by subscription.\n\nType 'help' to see the commands, or 'projects' to go straight to the work.\n"
   },
   "Terminal": {
     "page": "samet-erkan-boz-portfolio ~ {currentSection}",
@@ -30,22 +30,112 @@
     "type": "Type 'help' to see available commands."
   },
   "Contact": {
-    "title": "Contact Information",
-    "send-message": "Send Message",
-    "name": "Name:",
-    "email": "Email:",
-    "message": "Message:",
-    "success": "Message sent successfully! I'll get back to you soon.",
-    "error": "An error occurred while sending the message. Please try again later."
+    "title": "Contact Information"
   },
   "About": {
-    "content": "\nUSER PROFILE\n------------\nNAME: Samet Erkan Boz\nLOCATION: Istanbul\nTITLE: Full Stack Developer\n\nABOUT\n-----\nI am a passionate developer with a strong background in application development. \nMy journey in technology began in 2021.\n\nI enjoy solving complex problems and creating intuitive, efficient solutions.\nWhen I'm not coding, I enjoy spending time on [your hobbies/interests].\n\nMy approach to development is based on the DRY and KISS principles.\n\nEDUCATION\n---------\nBSc in Computer Engineering - IGU (2020 - 2024)\n\nEXPERIENCE\n----------\nFull-Stack Developer at beije.co (2024 - present)\n- beije.co\n- admin-panel\n- ruuts.xyz\n\nFrontend Developer at kargakarga (2024)\n- inmanage.io\n\nFrontend Developer at depixen (2021 - 2023)\n- depixen.com\n- admin panel"
+    "content": "\nUSER PROFILE\n------------\nNAME: Samet Erkan Boz\nLOCATION: Istanbul\nTITLE: Full Stack Developer\n\nABOUT\n-----\nSince July 2024 I have worked at beije, a period care brand that sells by subscription.\nI started with landing pages and now own platform work across a monorepo\nof Next.js apps and NestJS services.\n\nEDUCATION\n---------\nBSc in Computer Engineering, Istanbul Gelişim University (2020 - 2024)\n\nEXPERIENCE\n----------\nFull Stack Developer at beije (2024 - present)\n- beije.co storefront\n- ruuts.xyz storefront\n- admin panel, backend services, end-to-end tests\n\nFrontend Developer at kargakarga (2024)\n\nFull Stack Intern at Kafein (2024)\n\nFrontend Developer at fiyatperformans (2023)\n\nFrontend Developer at Depixen (2022 - 2023)"
   },
   "Skills": {
-    "languages": "Languages",
-    "frameworks": "Frameworks & Libraries",
-    "tools": "Tools & Platforms",
-    "other": "Other Skills",
-    "installed": "installed"
+    "installed": "installed",
+    "groups": [
+      {
+        "name": "Frontend",
+        "skills": [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "MUI",
+          "Redux Toolkit",
+          "Storybook",
+          "React Native"
+        ]
+      },
+      {
+        "name": "Backend",
+        "skills": [
+          "Node.js",
+          "NestJS",
+          "GraphQL",
+          "MongoDB",
+          "PostgreSQL",
+          "RabbitMQ"
+        ]
+      },
+      {
+        "name": "Testing and delivery",
+        "skills": [
+          "Playwright",
+          "Cypress",
+          "Nx",
+          "GitHub Actions",
+          "Docker"
+        ]
+      }
+    ]
+  },
+  "Projects": {
+    "heading": "Work at beije, July 2024 to today",
+    "technologies": "Technologies:",
+    "also": "Also at beije",
+    "items": [
+      {
+        "name": "The customer storefront",
+        "description": "I have been the most active developer on beije.co since 2025. I built campaign and landing pages, the cart and checkout with 3D Secure and one-time-password payments and saved cards, subscription editing, skipping and cancelling, and the customer return request flow from the form to the emails.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "MUI",
+          "Redux Toolkit"
+        ]
+      },
+      {
+        "name": "A new admin panel",
+        "description": "I moved the legacy operations panel to a new Next.js panel: order queues with bulk actions, refunds and returned orders, promo codes and coupons, label and invoice printing, customer and review moderation. One codebase serves two brands, runs in Turkish and English, and shows each admin only the screens their permissions allow.",
+        "technologies": [
+          "Next.js",
+          "GraphQL",
+          "Refine",
+          "next-intl"
+        ]
+      },
+      {
+        "name": "A platform upgrade across the monorepo",
+        "description": "I led the move of all seven frontend apps to React 19, Next.js 16 and MUI 9 in two weeks, with ESLint 9 flat config and a newer Nx on the way. I also wrote the migration guide for the team.",
+        "technologies": [
+          "React 19",
+          "Next.js 16",
+          "MUI 9",
+          "Nx"
+        ]
+      },
+      {
+        "name": "End-to-end tests on the whole stack",
+        "description": "I wrote most of the storefront's Cypress suite in my first months, then set up Playwright for the admin panel. The suites run in CI against a local Docker stack with seeded data and a payment sandbox, so a broken checkout fails a pull request before it reaches a customer.",
+        "technologies": [
+          "Playwright",
+          "Cypress",
+          "Docker",
+          "GitHub Actions"
+        ]
+      }
+    ],
+    "alsoItems": [
+      {
+        "name": "ruuts.xyz",
+        "description": "Most of the brand-specific features of ruuts, beije's sub-brand for shaving products: the starter kit builder, subscriptions that start on a future date, and sign-up with a beije account."
+      },
+      {
+        "name": "Localized errors for every service",
+        "description": "The shared library that gives about ten NestJS services error and validation messages in the user's language, with numbered error codes."
+      },
+      {
+        "name": "Design tokens from Figma",
+        "description": "Color, type and spacing tokens generated from the Figma design system, a lint rule that rejects hard-coded values, and one library of about 1,400 icons that take their color from the text around them."
+      },
+      {
+        "name": "Backend services",
+        "description": "One-time passwords over SMS with rate limiting, login history, moderation APIs for the community, admin permissions, and shipping carrier integrations with label printing."
+      }
+    ]
   }
 }
